@@ -6,7 +6,7 @@
     <title>دایمند ماین | DiamondMine</title>
     <meta name="description" content="دایمند ماین - سِروِری بَرایِ لِذَّتْ بُردَن">
     <link rel="icon" type="image/png" href="./images/ii.png">
-    <link href="Main.css" rel="stylesheet">
+    <link rel="stylesheet" href="Main.css">
 </head>
 <body>
 
@@ -22,7 +22,13 @@
             </div>
         </div>
         
-        <div class="nav-menu">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="nav-menu" id="navMenu">
             <a href="blog.html">وبلاگ</a>
             <a href="#">درباره ما</a>
             <a href="#gamemodes">گیم مودها</a>
@@ -30,7 +36,6 @@
         </div>
     </header>
 
-    <!-- باکس وضعیت سرور -->
     <div class="server-status-card">
         <div class="card-header">
             <div class="status-indicator" id="statusLed"></div>
@@ -58,26 +63,23 @@
         </div>
     </div>
 
-    <!-- بخش گیم مودها با دو ستون و افکت تیلت کارت -->
     <section id="gamemodes" class="gamemodes-section">
         <h2 class="section-title">🎮 گیم مودهای سرور</h2>
         <div class="gamemodes-grid">
             
-            <!-- گیم مود 1 -->
             <div class="gamemode-card tilt-card">
                 <div class="gamemode-image">
-                    <img src="./images/gamemode1.png" alt="تصویر Survival" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=Survival'">
+                    <img src="./images/gamemode1.png" alt="Survival">
                 </div>
                 <div class="gamemode-content">
                     <h3>⚔️ سروایول (Survival)</h3>
-                    <p>در این حالت، باید منابع جمع‌آوری کنی، ابزار بسازی و برابر هیولاها و بازیکنان دیگر مقاومت کنی. تجربه‌ای کلاسیک و چالش‌برانگیز!</p>
+                    <p>در این حالت، باید منابع جمع‌آوری کنی، ابزار بسازی و برابر هیولاها مقاومت کنی. تجربه‌ای کلاسیک و چالش‌برانگیز!</p>
                 </div>
             </div>
             
-            <!-- گیم مود 2 -->
             <div class="gamemode-card tilt-card">
                 <div class="gamemode-image">
-                    <img src="./images/gamemode2.png" alt="تصویر SkyWars" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=SkyWars'">
+                    <img src="./images/gamemode2.png" alt="SkyWars">
                 </div>
                 <div class="gamemode-content">
                     <h3>🏆 اسکای وارز (SkyWars)</h3>
@@ -85,10 +87,9 @@
                 </div>
             </div>
             
-            <!-- گیم مود 3 -->
             <div class="gamemode-card tilt-card">
                 <div class="gamemode-image">
-                    <img src="./images/gamemode3.png" alt="تصویر BedWars" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=BedWars'">
+                    <img src="./images/gamemode3.png" alt="BedWars">
                 </div>
                 <div class="gamemode-content">
                     <h3>🧩 بدوارز (BedWars)</h3>
@@ -96,10 +97,9 @@
                 </div>
             </div>
             
-            <!-- گیم مود 4 -->
             <div class="gamemode-card tilt-card">
                 <div class="gamemode-image">
-                    <img src="./images/gamemode4.png" alt="تصویر Creative" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=Creative'">
+                    <img src="./images/gamemode4.png" alt="Creative">
                 </div>
                 <div class="gamemode-content">
                     <h3>🎨 کریتیو (Creative)</h3>
@@ -107,10 +107,9 @@
                 </div>
             </div>
             
-            <!-- گیم مود 5 -->
             <div class="gamemode-card tilt-card">
                 <div class="gamemode-image">
-                    <img src="./images/gamemode5.png" alt="تصویر Parkour" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=Parkour'">
+                    <img src="./images/gamemode5.png" alt="Parkour">
                 </div>
                 <div class="gamemode-content">
                     <h3>🏃 پارکور (Parkour)</h3>
@@ -118,10 +117,9 @@
                 </div>
             </div>
             
-            <!-- گیم مود 6 -->
             <div class="gamemode-card tilt-card">
                 <div class="gamemode-image">
-                    <img src="./images/gamemode6.png" alt="تصویر OneBlock" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=OneBlock'">
+                    <img src="./images/gamemode6.png" alt="OneBlock">
                 </div>
                 <div class="gamemode-content">
                     <h3>🟫 وان بلاک (OneBlock)</h3>
@@ -174,7 +172,6 @@
                     playerCount.innerHTML = "0 / 0";
                 }
             } catch (error) {
-                console.error("خطا در اتصال به API:", error);
                 statusLed.className = "status-indicator offline";
                 serverStatus.innerHTML = "⚠️ خطا در اتصال";
                 serverStatus.style.color = "#ff9800";
@@ -185,7 +182,23 @@
         fetchServerStatus();
         setInterval(fetchServerStatus, 30000);
         
-        // افکت تیلت کارت با موس
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+        
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+        
         document.querySelectorAll('.tilt-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
