@@ -17,12 +17,10 @@ body {
     padding-top: 85px;
 }
 
-/* ========== اسکرول نرم ========== */
 html {
     scroll-behavior: smooth;
 }
 
-/* ========== پس‌زمینه ========== */
 .bg-tilt {
     position: fixed;
     top: 0;
@@ -36,7 +34,6 @@ html {
     z-index: -2;
 }
 
-/* ========== لایهٔ بلور ========== */
 .blur-overlay {
     position: fixed;
     top: 0;
@@ -47,7 +44,6 @@ html {
     z-index: -1;
 }
 
-/* ========== هدر ========== */
 header {
     background: rgba(8, 8, 8, 0.85);
     backdrop-filter: blur(16px);
@@ -158,6 +154,42 @@ header {
 
 .nav-btn::after {
     display: none;
+}
+
+/* ========== منوی همبرگر ========== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: rgba(85, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: rgb(85, 255, 255);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: rgba(85, 255, 255, 0.2);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ========== باکس وضعیت سرور ========== */
@@ -286,7 +318,7 @@ header {
     font-style: italic;
 }
 
-/* ========== بخش گیم مودها ========== */
+/* ========== گیم مودها ========== */
 .gamemodes-section {
     padding: 60px 20px;
     max-width: 1400px;
@@ -309,7 +341,6 @@ header {
     gap: 30px;
 }
 
-/* کارت گیم مود با افکت تیلت */
 .gamemode-card {
     background: rgba(15, 15, 15, 0.7);
     backdrop-filter: blur(15px);
@@ -358,16 +389,15 @@ header {
     color: #cccccc;
     font-size: 14px;
     line-height: 1.5;
-    font-weight: 250;
+    font-weight: 300;
 }
 
-/* افکت تیلت کارت (با جاوااسکریپت) */
 .tilt-card {
     transition: transform 0.1s ease-out;
     will-change: transform;
 }
 
-/* ========== موبایل (تبدیل به یک ستون) ========== */
+/* ========== موبایل ========== */
 @media (max-width: 768px) {
     body {
         padding-top: 75px;
@@ -399,18 +429,41 @@ header {
         font-size: 11px;
     }
     
+    .hamburger {
+        display: flex;
+    }
+    
     .nav-menu {
-        gap: 12px;
+        position: fixed;
+        top: 75px;
+        right: -100%;
+        width: 70%;
+        height: calc(100vh - 75px);
+        background: rgba(8, 8, 8, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 99;
+    }
+    
+    .nav-menu.active {
+        right: 0;
     }
     
     .nav-menu a {
-        font-size: 13px;
-        padding: 6px 3px;
+        font-size: 20px;
+        padding: 12px;
+    }
+    
+    .nav-menu a::after {
+        display: none;
     }
     
     .nav-btn {
-        padding: 5px 12px !important;
-        font-size: 12px;
+        margin-right: 0 !important;
     }
     
     .server-status-card {
@@ -462,12 +515,6 @@ header {
     
     .gamemode-image {
         height: 160px;
-    }
-}
-
-@media (max-width: 550px) {
-    .nav-menu a:not(.nav-btn) {
-        display: none;
     }
 }
 
