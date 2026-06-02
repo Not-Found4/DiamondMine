@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>دایمند ماین | DiamondMine</title>
+    <meta name="description" content="دایمند ماین - سِروِری بَرایِ لِذَّتْ بُردَن">
+    <link rel="icon" type="image/png" href="./Images/ii.png">
+    <link href="Main.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bg-tilt" id="bgTilt"></div>
+    <div class="blur-overlay"></div>
+
+    <header>
+        <div class="logo-area">
+            <img src="./Images/ii.png" alt="لوگو">
+            <div class="logo-text">
+                <div class="en">DiamondMine</div>
+                <div class="fa">دایمند ماین</div>
+            </div>
+        </div>
+        
+        <div class="nav-menu">
+            <a href="#">وبلاگ</a>
+            <a href="#">درباره ما</a>
+            <a href="#gamemodes">گیم مودها</a>
+            <a href="#" class="nav-btn">ورود / ثبت‌نام</a>
+        </div>
+    </header>
+
+    <!-- باکس وضعیت سرور -->
+    <div class="server-status-card">
+        <div class="card-header">
+            <div class="status-indicator" id="statusLed"></div>
+            <h2>وضعیت سرور</h2>
+        </div>
+        
+        <div class="server-info">
+            <div class="info-row">
+                <span class="info-label">🌐 وضعیت:</span>
+                <span class="info-value" id="serverStatus">در حال اتصال...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">👥 بازیکنان آنلاین:</span>
+                <span class="info-value" id="playerCount">--</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">💎 آی‌پی سرور:</span>
+                <span class="info-value ip-address" id="serverIp">mc.hypixel.net</span>
+                <button class="copy-btn" onclick="copyIP(event)">📋 کپی</button>
+            </div>
+        </div>
+        
+        <div class="motd">
+            <span class="motd-text">✨ به جمع الماس‌ها بپیوندید ✨</span>
+        </div>
+    </div>
+
+    <!-- بخش گیم مودها با دو ستون و افکت تیلت کارت -->
+    <section id="gamemodes" class="gamemodes-section">
+        <h2 class="section-title">🎮 گیم مودهای سرور</h2>
+        <div class="gamemodes-grid">
+            
+            <!-- گیم مود 1 -->
+            <div class="gamemode-card tilt-card">
+                <div class="gamemode-image">
+                    <img src="./Images/gamemode1.jpg" alt="تصویر Survival" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=Survival'">
+                </div>
+                <div class="gamemode-content">
+                    <h3>⚔️ سروایول (Survival)</h3>
+                    <p>در این حالت، باید منابع جمع‌آوری کنی، ابزار بسازی و برابر هیولاها و بازیکنان دیگر مقاومت کنی. تجربه‌ای کلاسیک و چالش‌برانگیز!</p>
+                </div>
+            </div>
+            
+            <!-- گیم مود 2 -->
+            <div class="gamemode-card tilt-card">
+                <div class="gamemode-image">
+                    <img src="./Images/gamemode2.jpg" alt="تصویر SkyWars" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=SkyWars'">
+                </div>
+                <div class="gamemode-content">
+                    <h3>🏆 اسکای وارز (SkyWars)</h3>
+                    <p>در جزایر معلق در آسمان، با تجهیزات محدود شروع می‌کنی و باید بقیه را از جزیره بیرون بزنی. نبردهای سریع و نفس‌گیر!</p>
+                </div>
+            </div>
+            
+            <!-- گیم مود 3 -->
+            <div class="gamemode-card tilt-card">
+                <div class="gamemode-image">
+                    <img src="./Images/gamemode3.jpg" alt="تصویر BedWars" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=BedWars'">
+                </div>
+                <div class="gamemode-content">
+                    <h3>🧩 بدوارز (BedWars)</h3>
+                    <p>از تخت خودت محافظت کن و تخت بقیه را نابود کن. آخرین تیمی که تختش سالم بماند، برنده است. بازی تیمی و استراتژیک!</p>
+                </div>
+            </div>
+            
+            <!-- گیم مود 4 -->
+            <div class="gamemode-card tilt-card">
+                <div class="gamemode-image">
+                    <img src="./Images/gamemode4.jpg" alt="تصویر Creative" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=Creative'">
+                </div>
+                <div class="gamemode-content">
+                    <h3>🎨 کریتیو (Creative)</h3>
+                    <p>دنیایی بدون محدودیت برای ساختن هر چه می‌خواهی. با منابع نامحدود، قلعه، شهر و هر چیزی که تصور کنی را بساز!</p>
+                </div>
+            </div>
+            
+            <!-- گیم مود 5 -->
+            <div class="gamemode-card tilt-card">
+                <div class="gamemode-image">
+                    <img src="./Images/gamemode5.jpg" alt="تصویر Parkour" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=Parkour'">
+                </div>
+                <div class="gamemode-content">
+                    <h3>🏃 پارکور (Parkour)</h3>
+                    <p>مهارت خود را در پرش از موانع چالش‌برانگیز نشان بده. سریع‌ترین زمان را ثبت کن و جزو بهترین‌ها باش!</p>
+                </div>
+            </div>
+            
+            <!-- گیم مود 6 -->
+            <div class="gamemode-card tilt-card">
+                <div class="gamemode-image">
+                    <img src="./Images/gamemode6.jpg" alt="تصویر OneBlock" onerror="this.src='https://placehold.co/400x200/1a1a1a/55FFFF?text=OneBlock'">
+                </div>
+                <div class="gamemode-content">
+                    <h3>🟫 وان بلاک (OneBlock)</h3>
+                    <p>با یک بلوک شروع می‌کنی و با هر بار شکستن آن، منابع جدیدی به دست می‌آوری. یک چالش جذاب و متفاوت!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const SERVER_IP = "mc.hypixel.net";
+        const SERVER_PORT = "25565";
+        
+        document.getElementById("serverIp").innerText = SERVER_IP;
+        
+        function copyIP(event) {
+            const ipText = document.getElementById("serverIp").innerText;
+            navigator.clipboard.writeText(ipText).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = "✅ کپی شد!";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                alert("خطا در کپی کردن: " + err);
+            });
+        }
+        
+        async function fetchServerStatus() {
+            const statusLed = document.getElementById("statusLed");
+            const serverStatus = document.getElementById("serverStatus");
+            const playerCount = document.getElementById("playerCount");
+            
+            try {
+                const response = await fetch(`https://api.mcsrvstat.us/2/${SERVER_IP}:${SERVER_PORT}`);
+                const data = await response.json();
+                
+                if (data.online) {
+                    statusLed.className = "status-indicator online";
+                    serverStatus.innerHTML = "✅ آنلاین";
+                    serverStatus.style.color = "#4CAF50";
+                    const onlinePlayers = data.players?.online || 0;
+                    const maxPlayers = data.players?.max || 0;
+                    playerCount.innerHTML = `${onlinePlayers.toLocaleString()} / ${maxPlayers.toLocaleString()}`;
+                } else {
+                    statusLed.className = "status-indicator offline";
+                    serverStatus.innerHTML = "❌ آفلاین";
+                    serverStatus.style.color = "#f44336";
+                    playerCount.innerHTML = "0 / 0";
+                }
+            } catch (error) {
+                console.error("خطا در اتصال به API:", error);
+                statusLed.className = "status-indicator offline";
+                serverStatus.innerHTML = "⚠️ خطا در اتصال";
+                serverStatus.style.color = "#ff9800";
+                playerCount.innerHTML = "-- / --";
+            }
+        }
+        
+        fetchServerStatus();
+        setInterval(fetchServerStatus, 30000);
+        
+        // افکت تیلت کارت با موس
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) / 20;
+                const y = (e.clientY - rect.top - rect.height / 2) / 20;
+                card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        });
+    </script>
+
+</body>
+</html>
