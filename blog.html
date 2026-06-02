@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="blog.css">
 </head>
 <body>
-    
+
     <div class="bg-tilt" id="bgTilt"></div>
     <div class="blur-overlay"></div>
 
@@ -23,7 +23,14 @@
                 <div class="fa">دایمند ماین</div>
             </div>
         </div>
-        <div class="nav-menu">
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="nav-menu" id="navMenu">
             <a href="index.html">خانه</a>
             <a href="blog.html" class="active">وبلاگ</a>
             <a href="#">درباره ما</a>
@@ -39,75 +46,28 @@
 
     <div class="blog-grid" id="blogGrid"></div>
 
-    <div class="pagination" id="pagination">
-        <button onclick="loadPage(1)">۱</button>
-        <button onclick="loadPage(2)">۲</button>
-        <button onclick="loadPage(3)">۳</button>
-    </div>
+    <div class="pagination" id="pagination"></div>
 
     <script>
-        // دیتای بلاگ‌ها (۶۰ عدد)
         const blogPosts = [
-            // ========== موب‌ها (Mobs) ==========
-            { title: "کریپر (Creeper)", category: "موب", desc: "موب انفجاری که در شب ظاهر می‌شود. اگر نزدیک شوی، منفجر می‌شود و خسارت زیادی می‌زند.", emoji: "💥", stat: "دشمن", link: "#" },
-            { title: "اِندرمن (Enderman)", category: "موب", desc: "موب بلند و سیاه که با نگاه کردن به چشم‌هایش عصبانی می‌شود. با کشتنش اندرپیرل می‌دهد.", emoji: "👾", stat: "خنثی/دشمن", link: "#" },
-            { title: "اسکلتون (Skeleton)", category: "موب", desc: "موب تیرانداز با کمان. در شب و مناطق تاریک ظاهر می‌شود. با کشتنش استخوان و تیر می‌دهد.", emoji: "🏹", stat: "دشمن", link: "#" },
-            { title: "زامبی (Zombie)", category: "موب", desc: "موب کند اما خطرناک. در شب ظاهر می‌شود و به روستاییان حمله می‌کند.", emoji: "🧟", stat: "دشمن", link: "#" },
-            { title: "اسپایدر (Spider)", category: "موب", desc: "عنکبوت که از دیوارها بالا می‌رود. در شب چشم‌هایش قرمز می‌شود و تهاجمی می‌گردد.", emoji: "🕷️", stat: "دشمن", link: "#" },
-            { title: "ویچ (Witch)", category: "موب", desc: "جادوگر که از دستور زبان و پاشیدن معجون استفاده می‌کند. در کلبه‌های مرداب زندگی می‌کند.", emoji: "🧙", stat: "دشمن", link: "#" },
-            { title: "اسلایم (Slime)", category: "موب", desc: "موب ژله‌ای که در باتلاق‌ها پیدا می‌شود. با کشتنش به اسلایم‌های کوچک‌تر تقسیم می‌شود.", emoji: "🟢", stat: "دشمن", link: "#" },
-            { title: "بلیز (Blaze)", category: "موب", desc: "موب آتشی که در ندر یافت می‌شود. با کشتنش راود بلز می‌دهد.", emoji: "🔥", stat: "دشمن", link: "#" },
-            { title: "غول (Ghast)", category: "موب", desc: "موب پرنده و گریان در ندر. توپ‌های آتشی شلیک می‌کند.", emoji: "👻", stat: "دشمن", link: "#" },
-            { title: "هاگلین (Hoglin)", category: "موب", desc: "گراز بزرگ در ندر. گوشت خوک و پوست می‌دهد.", emoji: "🐗", stat: "دشمن", link: "#" },
-            { title: "پیگلین (Piglin)", category: "موب", desc: "موب ندری که به طلا حساس است. با طلا معامله می‌کند.", emoji: "🐷", stat: "خنثی", link: "#" },
-            { title: "دراگون (Ender Dragon)", category: "موب", desc: "باس فایت نهایی بازی. با کشتنش اند و دراگون را تمام می‌کند.", emoji: "🐉", stat: "باس", link: "#" },
-            { title: "ویدر (Wither)", category: "موب", desc: "باس خطرناک که با جمجمه‌های ویتر ساخته می‌شود. ستاره ندر می‌دهد.", emoji: "💀", stat: "باس", link: "#" },
-            { title: "فاکس (Fox)", category: "موب", desc: "روباه که در بایوم‌های تایگا زندگی می‌کند. دوست داشتنی و اهلی شدنی است.", emoji: "🦊", stat: "دوستانه", link: "#" },
-            { title: "ولف (Wolf)", category: "موب", desc: "گرگ که با استخوان اهلی می‌شود. از شما در برابر دشمنان دفاع می‌کند.", emoji: "🐺", stat: "اهلی شدنی", link: "#" },
-            { title: "کت (Cat)", category: "موب", desc: "گربه که در دهکده‌ها یافت می‌شود. کریپر را فراری می‌دهد.", emoji: "🐱", stat: "اهلی شدنی", link: "#" },
-            { title: "پاروت (Parrot)", category: "موب", desc: "طوطی که در جنگل‌ها پیدا می‌شود. صدای موب‌های اطراف را تقلید می‌کند.", emoji: "🦜", stat: "اهلی شدنی", link: "#" },
-            { title: "ترتل (Turtle)", category: "موب", desc: "لاک‌پشت دریایی که تخم می‌گذارد. اسکیوتل برای ساخت کلاه لاک‌پشتی می‌دهد.", emoji: "🐢", stat: "دوستانه", link: "#" },
-            { title: "دولفین (Dolphin)", category: "موب", desc: "دلفین در اقیانوس‌ها. به شناگران سرعت می‌دهد.", emoji: "🐬", stat: "دوستانه", link: "#" },
-            { title: "آیرون گلم (Iron Golem)", category: "موب", desc: "محافظ دهکده. به روستاییان و شما در برابر خطرات کمک می‌کند.", emoji: "🛡️", stat: "حافظ", link: "#" },
-            
-            // ========== بایوم‌ها (Biomes) ==========
-            { title: "جنگل تاریک (Dark Forest)", category: "بایوم", desc: "جنگلی انبوه با درختان بزرگ تاریک. خانه ویچ‌ها و قارچ‌های غول‌پیکر.", emoji: "🌲", stat: "خطرناک", link: "#" },
-            { title: "صحرا (Desert)", category: "بایوم", desc: "منطقه خشک و شنی. معبد صحرا و دهکده‌های صحرایی اینجا یافت می‌شوند.", emoji: "🏜️", stat: "گرم", link: "#" },
-            { title: "جنگل (Jungle)", category: "بایوم", desc: "جنگلی سرسبز با درختان بائوباب. طوطی، گوسفند و معبد جنگلی اینجاست.", emoji: "🌴", stat: "سبز", link: "#" },
-            { title: "تایگا (Taiga)", category: "بایوم", desc: "جنگل سردسیر با درختان صنوبر. گرگ، روباه و دهکده تایگا اینجا یافت می‌شوند.", emoji: "❄️", stat: "سرد", link: "#" },
-            { title: "یخ‌زده (Ice Spikes)", category: "بایوم", desc: "منطقه با ستون‌های عظیم یخی. نادرترین بایوم برفی.", emoji: "🧊", stat: "قطبی", link: "#" },
-            { title: "باتلاق (Swamp)", category: "بایوم", desc: "منطقه باتلاقی با درختان کج. اسلایم و کلبه ویچ اینجا پیدا می‌شوند.", emoji: "🌾", stat: "مرطوب", link: "#" },
-            { title: "مسطح (Plains)", category: "بایوم", desc: "دشت‌های باز و مسطح. بهترین مکان برای ساخت دهکده.", emoji: "🌿", stat: "معمولی", link: "#" },
-            { title: "تپه‌ها (Windswept Hills)", category: "بایوم", desc: "تپه‌های مرتفع و سنگی. خانه بزهای کوهی.", emoji: "⛰️", stat: "کوهستانی", link: "#" },
-            { title: "اقیانوس (Ocean)", category: "بایوم", desc: "آب‌های بیکران. دلفین، لاک‌پشت و غرق‌شده‌ها اینجا هستند.", emoji: "🌊", stat: "آبی", link: "#" },
-            { title: "ندِر (Nether)", category: "بایوم", desc: "بعد جهنم. بلیز، غول و پیگلین اینجا زندگی می‌کنند.", emoji: "🔥", stat: "جهنمی", link: "#" },
-            { title: "اند (End)", category: "بایوم", desc: "بعد انتهایی. خانه اِندرمن و دراگون.", emoji: "🌌", stat: "نهایی", link: "#" },
-            { title: "قارچ (Mushroom Fields)", category: "بایوم", desc: "جزیره قارچی. موآشوم (گاو قارچی) اینجا زندگی می‌کند.", emoji: "🍄", stat: "نادر", link: "#" },
-            { title: "بامبو (Bamboo Jungle)", category: "بایوم", desc: "جنگل بامبو. پانداها اینجا زندگی می‌کنند.", emoji: "🎋", stat: "سبز", link: "#" },
-            { title: "ماشوم (Mushroom)", category: "بایوم", desc: "زمین قارچی. هیچ موب دشمنی اسپاون نمی‌شود.", emoji: "🍄", stat: "امن", link: "#" },
-            
-            // ========== آیتم‌ها و سازه‌ها (Items & Structures) ==========
-            { title: "الماس (Diamond)", category: "آیتم", desc: "باارزش‌ترین سنگ معدن. برای ساخت بهترین ابزار و زره استفاده می‌شود.", emoji: "💎", stat: "نادر", link: "#" },
-            { title: "نادرایت (Netherite)", category: "آیتم", desc: "قوی‌ترین ماده بازی. با ارتقای الماس در ندر ساخته می‌شود.", emoji: "⚔️", stat: "نهایی", link: "#" },
-            { title: "اندردرخ (Ender Chest)", category: "آیتم", desc: "صندوقچه‌ای که محتویاتش در همه جای جهان یکسان است.", emoji: "📦", stat: "جادویی", link: "#" },
-            { title: "بیکن (Beacon)", category: "آیتم", desc: "منبع نوری که به بازیکن افکت‌های ویژه می‌دهد.", emoji: "✨", stat: "افکتی", link: "#" },
-            { title: "الکسندر (Elytra)", category: "آیتم", desc: "بال‌هایی برای پرواز. در کشتی‌های اند پیدا می‌شود.", emoji: "🦅", stat: "پروازی", link: "#" },
-            { title: "پیکس (Pickaxe)", category: "آیتم", desc: "ابزار اصلی برای استخراج سنگ و معادن.", emoji: "⛏️", stat: "ابزار", link: "#" },
-            { title: "معبد بیس (Bastion)", category: "سازه", desc: "ساختار بزرگ در ندر. پر از پیگلین‌ها و غنایم باارزش.", emoji: "🏰", stat: "ندری", link: "#" },
-            { title: "قلعه ندر (Nether Fortress)", category: "سازه", desc: "ساختار پل‌مانند در ندر. بلیز و اسکلتون ویتر اینجا هستند.", emoji: "🏯", stat: "ندری", link: "#" },
-            { title: "شهر اند (End City)", category: "سازه", desc: "شهر شناور در اند. الکساندر و شولکرها اینجا هستند.", emoji: "🏙️", stat: "اندر", link: "#" },
-            { title: "معبد صحرا (Desert Temple)", category: "سازه", desc: "هرم صحرایی با تله TNT و صندوقچه پنهان.", emoji: "🛕", stat: "تله‌دار", link: "#" },
-            { title: "معبد جنگلی (Jungle Temple)", category: "سازه", desc: "ساختار سنگی در جنگل با پازل و تله.", emoji: "🏛️", stat: "پازلی", link: "#" },
-            { title: "قلعه (Stronghold)", category: "سازه", desc: "ساختار زیرزمینی که پورتال اند در آن قرار دارد.", emoji: "🏰", stat: "نهایی", link: "#" },
-            { title: "معبد اقیانوسی (Ocean Monument)", category: "سازه", desc: "ساختار زیر آبی. گاردین‌ها و الدر گاردین‌ها اینجا هستند.", emoji: "🌊", stat: "آبی", link: "#" },
-            { title: "وودلند منشن (Woodland Mansion)", category: "سازه", desc: "عمارت بزرگ در تیره‌جنگل. پر از ایلاگرها.", emoji: "🏰", stat: "خطرناک", link: "#" },
-            { title: "روستا (Village)", category: "سازه", desc: "محل زندگی روستاییان. می‌توانی با آنها تجارت کنی.", emoji: "🏘️", stat: "آرام", link: "#" },
-            { title: "ایگلو (Igloo)", category: "سازه", desc: "ساختار برفی. زیر فرش آن، یک زامبی روستایی و صندوقچه پنهان است.", emoji: "🏠", stat: "پنهان", link: "#" },
-            { title: "پورتال ندر (Nether Portal)", category: "سازه", desc: "ساختار سفر به بعد ندر. با ابسیدین ساخته می‌شود.", emoji: "🌀", stat: "سفر", link: "#" },
-            { title: "پورتال اند (End Portal)", category: "سازه", desc: "پورتال سفر به بعد اند. در قلعه پیدا می‌شود.", emoji: "🌑", stat: "نهایی", link: "#" }
+            { title: "کریپر (Creeper)", category: "موب", desc: "موب انفجاری که در شب ظاهر می‌شود. اگر نزدیک شوی، منفجر می‌شود.", emoji: "💥", stat: "دشمن" },
+            { title: "اندرمن (Enderman)", category: "موب", desc: "موب بلند و سیاه که با نگاه کردن عصبانی می‌شود. اندرپیرل می‌دهد.", emoji: "👾", stat: "خنثی/دشمن" },
+            { title: "اسکلتون (Skeleton)", category: "موب", desc: "موب تیرانداز با کمان. استخوان و تیر می‌دهد.", emoji: "🏹", stat: "دشمن" },
+            { title: "زامبی (Zombie)", category: "موب", desc: "موب کند اما خطرناک. به روستاییان حمله می‌کند.", emoji: "🧟", stat: "دشمن" },
+            { title: "عنکبوت (Spider)", category: "موب", desc: "از دیوارها بالا می‌رود. در شب چشم‌هایش قرمز می‌شود.", emoji: "🕷️", stat: "دشمن" },
+            { title: "جادوگر (Witch)", category: "موب", desc: "از معجون استفاده می‌کند. در کلبه‌های مرداب زندگی می‌کند.", emoji: "🧙", stat: "دشمن" },
+            { title: "اسلایم (Slime)", category: "موب", desc: "موب ژله‌ای در باتلاق‌ها. با کشتنش تقسیم می‌شود.", emoji: "🟢", stat: "دشمن" },
+            { title: "بلیز (Blaze)", category: "موب", desc: "موب آتشی در ندر. راود بلز می‌دهد.", emoji: "🔥", stat: "دشمن" },
+            { title: "غول (Ghast)", category: "موب", desc: "موب پرنده در ندر. توپ‌های آتشی شلیک می‌کند.", emoji: "👻", stat: "دشمن" },
+            { title: "دراگون (Ender Dragon)", category: "موب", desc: "باس فایت نهایی بازی.", emoji: "🐉", stat: "باس" },
+            { title: "ویتر (Wither)", category: "موب", desc: "باس خطرناک. ستاره ندر می‌دهد.", emoji: "💀", stat: "باس" },
+            { title: "الماس (Diamond)", category: "آیتم", desc: "باارزش‌ترین سنگ معدن. برای بهترین ابزار و زره.", emoji: "💎", stat: "نادر" },
+            { title: "ندرایت (Netherite)", category: "آیتم", desc: "قوی‌ترین ماده بازی. ارتقای الماس در ندر.", emoji: "⚔️", stat: "نهایی" },
+            { title: "قلعه ندر (Nether Fortress)", category: "سازه", desc: "ساختار پل‌مانند در ندر. بلیز و اسکلتون ویتر.", emoji: "🏯", stat: "ندری" },
+            { title: "شهر اند (End City)", category: "سازه", desc: "شهر شناور در اند. الکساندر و شولکرها.", emoji: "🏙️", stat: "اندر" }
         ];
 
-        const postsPerPage = 15;
+        const postsPerPage = 6;
         let currentPage = 1;
 
         function loadPage(page) {
@@ -130,14 +90,13 @@
                         <p>${post.desc}</p>
                         <div class="blog-stats">
                             <span>⭐ ${post.stat}</span>
-                            <span>📖 ${Math.floor(Math.random() * 5) + 1} دقیقه مطالعه</span>
+                            <span>📖 ${Math.floor(Math.random() * 5) + 1} دقیقه</span>
                         </div>
                     </div>
                 `;
                 grid.appendChild(card);
             });
             
-            // به روزرسانی pagination
             const totalPages = Math.ceil(blogPosts.length / postsPerPage);
             const paginationDiv = document.getElementById('pagination');
             paginationDiv.innerHTML = '';
@@ -151,6 +110,23 @@
         }
         
         loadPage(1);
+        
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+        
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
     </script>
 
 </body>
