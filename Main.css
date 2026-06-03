@@ -461,7 +461,11 @@ header {
     .nav-menu a::after {
         display: none;
     }
-    
+
+    .nav-menu .nav-btn {
+        order: -1;  /* ← دکمه ورود/ثبت‌نام را می‌برد بالای همه */
+    }
+
     .nav-btn {
         margin-right: 0 !important;
     }
