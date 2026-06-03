@@ -1,0 +1,36 @@
+name: Automated Backup to 'Bale'
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # هر 30 دقیقه
+  workflow_dispatch:         # برای اجرای دستی
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Backup Bundle
+        run: |
+          git bundle create diamondmine-backup.bundle --all
+
+      # 📁 ذخیره فایل به عنوان Artifact (همون روش قبلی)
+      - name: Upload Backup as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: diamondmine-backup
+          path: diamondmine-backup.bundle
+
+      # 📤 ارسال فایل به بات 'بله' (با استفاده از API)
+      - name: Send Backup to Bale Bot
+        env:
+          BALE_TOKEN: ${{ secrets.BALE_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.BALE_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.bale.ai/v1/bot$BALE_TOKEN/sendDocument" \
+            -F "chat_id=$CHAT_ID" \
+            -F "document=@diamondmine-backup.bundle"
