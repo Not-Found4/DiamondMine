@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>بلاگ | دایمند ماین</title>
-    <meta name="description" content="مقالات و آموزش‌های تخصصی ماینکرفت - راهنمای موب‌ها، بایوم‌ها و آیتم‌های بازی">
-    <meta name="keywords" content="ماینکرفت, بلاگ ماینکرفت, آموزش ماینکرفت, موب ماینکرفت, بایوم ماینکرفت">
-    <link rel="icon" type="image/png" href="./images/ii.png">
+    <meta name="description" content="مقالات و آموزش‌های تخصصی ماینکرفت - راهنمای ماب‌ها، بایوم‌ها و آیتم‌های بازی">
+    <meta name="keywords" content="ماینکرفت, بلاگ ماینکرفت, آموزش ماینکرفت, ماب ماینکرفت, بایوم ماینکرفت">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png">
     <link rel="stylesheet" href="Main.css">
     <link rel="stylesheet" href="blog.css">
 </head>
@@ -17,7 +17,7 @@
 
     <header>
         <div class="logo-area">
-            <img src="./images/ii.png" alt="لوگو">
+            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
             <div class="logo-text">
                 <div class="en">DiamondMine</div>
                 <div class="fa">دایمند ماین</div>
@@ -41,7 +41,7 @@
 
     <div class="blog-header">
         <h1>📖 بلاگ دایمند ماین</h1>
-        <p>مقالات تخصصی ماینکرفت | راهنماهای موب‌ها، بایوم‌ها و آیتم‌های نادر</p>
+        <p>مقالات تخصصی ماینکرفت | راهنماهای ماب‌ها، بایوم‌ها و آیتم‌های نادر</p>
     </div>
 
     <div class="blog-grid" id="blogGrid"></div>
@@ -50,17 +50,17 @@
 
     <script>
         const blogPosts = [
-            { title: "کریپر (Creeper)", category: "موب", desc: "موب انفجاری که در شب ظاهر می‌شود. اگر نزدیک شوی، منفجر می‌شود.", emoji: "💥", stat: "دشمن" },
-            { title: "اندرمن (Enderman)", category: "موب", desc: "موب بلند و سیاه که با نگاه کردن عصبانی می‌شود. اندرپیرل می‌دهد.", emoji: "👾", stat: "خنثی/دشمن" },
-            { title: "اسکلتون (Skeleton)", category: "موب", desc: "موب تیرانداز با کمان. استخوان و تیر می‌دهد.", emoji: "🏹", stat: "دشمن" },
-            { title: "زامبی (Zombie)", category: "موب", desc: "موب کند اما خطرناک. به روستاییان حمله می‌کند.", emoji: "🧟", stat: "دشمن" },
-            { title: "عنکبوت (Spider)", category: "موب", desc: "از دیوارها بالا می‌رود. در شب چشم‌هایش قرمز می‌شود.", emoji: "🕷️", stat: "دشمن" },
-            { title: "جادوگر (Witch)", category: "موب", desc: "از معجون استفاده می‌کند. در کلبه‌های مرداب زندگی می‌کند.", emoji: "🧙", stat: "دشمن" },
-            { title: "اسلایم (Slime)", category: "موب", desc: "موب ژله‌ای در باتلاق‌ها. با کشتنش تقسیم می‌شود.", emoji: "🟢", stat: "دشمن" },
-            { title: "بلیز (Blaze)", category: "موب", desc: "موب آتشی در ندر. راود بلز می‌دهد.", emoji: "🔥", stat: "دشمن" },
-            { title: "غول (Ghast)", category: "موب", desc: "موب پرنده در ندر. توپ‌های آتشی شلیک می‌کند.", emoji: "👻", stat: "دشمن" },
-            { title: "دراگون (Ender Dragon)", category: "موب", desc: "باس فایت نهایی بازی.", emoji: "🐉", stat: "باس" },
-            { title: "ویتر (Wither)", category: "موب", desc: "باس خطرناک. ستاره ندر می‌دهد.", emoji: "💀", stat: "باس" },
+            { title: "کریپر (Creeper)", category: "ماب", desc: "ماب انفجاری که در شب ظاهر می‌شود. اگر نزدیک شوی، منفجر می‌شود.", emoji: "💥", stat: "دشمن" },
+            { title: "اندرمن (Enderman)", category: "ماب", desc: "ماب بلند و سیاه که با نگاه کردن عصبانی می‌شود. اندرپیرل می‌دهد.", emoji: "👾", stat: "خنثی/دشمن" },
+            { title: "اسکلتون (Skeleton)", category: "ماب", desc: "ماب تیرانداز با کمان. استخوان و تیر می‌دهد.", emoji: "🏹", stat: "دشمن" },
+            { title: "زامبی (Zombie)", category: "ماب", desc: "ماب کند اما خطرناک. به روستاییان حمله می‌کند.", emoji: "🧟", stat: "دشمن" },
+            { title: "عنکبوت (Spider)", category: "ماب", desc: "از دیوارها بالا می‌رود. در شب چشم‌هایش قرمز می‌شود.", emoji: "🕷️", stat: "دشمن" },
+            { title: "جادوگر (Witch)", category: "ماب", desc: "از معجون استفاده می‌کند. در کلبه‌های مرداب زندگی می‌کند.", emoji: "🧙", stat: "دشمن" },
+            { title: "اسلایم (Slime)", category: "ماب", desc: "ماب ژله‌ای در باتلاق‌ها. با کشتنش تقسیم می‌شود.", emoji: "🟢", stat: "دشمن" },
+            { title: "بلیز (Blaze)", category: "ماب", desc: "ماب آتشی در ندر. راود بلز می‌دهد.", emoji: "🔥", stat: "دشمن" },
+            { title: "غول (Ghast)", category: "ماب", desc: "ماب پرنده در ندر. توپ‌های آتشی شلیک می‌کند.", emoji: "👻", stat: "دشمن" },
+            { title: "دراگون (Ender Dragon)", category: "ماب", desc: "باس فایت نهایی بازی.", emoji: "🐉", stat: "باس" },
+            { title: "ویتر (Wither)", category: "ماب", desc: "باس خطرناک. ستاره ندر می‌دهد.", emoji: "💀", stat: "باس" },
             { title: "الماس (Diamond)", category: "آیتم", desc: "باارزش‌ترین سنگ معدن. برای بهترین ابزار و زره.", emoji: "💎", stat: "نادر" },
             { title: "ندرایت (Netherite)", category: "آیتم", desc: "قوی‌ترین ماده بازی. ارتقای الماس در ندر.", emoji: "⚔️", stat: "نهایی" },
             { title: "قلعه ندر (Nether Fortress)", category: "سازه", desc: "ساختار پل‌مانند در ندر. بلیز و اسکلتون ویتر.", emoji: "🏯", stat: "ندری" },
