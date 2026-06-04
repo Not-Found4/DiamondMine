@@ -1,6 +1,6 @@
 @font-face {
     font-family: mc;
-    src: url(./font/Digi\ Craft\ Ultra\ Black.otf);
+    src: url('https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/font/Digi%20Craft%20Ultra%20Black.otf');
 }
 
 * {
@@ -27,7 +27,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./images/1.png');
+    background-image: url('https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -463,7 +463,7 @@ header {
     }
 
     .nav-menu .nav-btn {
-        order: -1;  /* ← دکمه ورود/ثبت‌نام را می‌برد بالای همه */
+        order: -1;
     }
 
     .nav-btn {
