@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>درباره ما | دایمند ماین</title>
+    <meta name="description" content="درباره سرور دایمند ماین - سروری برای لذت بردن با گیم مودهای متنوع و آنلاین ۲۴ ساعته">
+    <meta name="keywords" content="درباره ما, دایمند ماین, سرور ماینکرفت, تیم دایمند">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png">
+    <link rel="stylesheet" href="Main.css">
+    <style>
+        /* استایل مخصوص صفحه درباره ما */
+        .about-section {
+            padding: 100px 20px 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .about-card {
+            background: rgba(15, 15, 15, 0.75);
+            backdrop-filter: blur(15px);
+            border-radius: 32px;
+            padding: 40px;
+            border: 1px solid rgba(85, 255, 255, 0.25);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+        }
+        
+        .about-card h2 {
+            color: rgb(85, 255, 255);
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(85, 255, 255, 0.3);
+        }
+        
+        .about-card p {
+            color: #cccccc;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(85, 255, 255, 0.15);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(85, 255, 255, 0.4);
+        }
+        
+        .feature-emoji {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item h3 {
+            color: rgb(85, 255, 255);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-item p {
+            color: #bbbbbb;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(85, 255, 255, 0.2);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            color: rgb(85, 255, 255);
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #888888;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 80px 15px 40px;
+            }
+            .about-card {
+                padding: 25px;
+            }
+            .about-card h2 {
+                font-size: 26px;
+            }
+            .about-card p {
+                font-size: 14px;
+            }
+            .feature-emoji {
+                font-size: 36px;
+            }
+            .feature-item h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-tilt" id="bgTilt"></div>
+    <div class="blur-overlay"></div>
+
+    <header>
+        <div class="logo-area">
+            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
+            <div class="logo-text">
+                <div class="en">DiamondMine</div>
+                <div class="fa">دایمند ماین</div>
+            </div>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html">خانه</a>
+            <a href="blog.html">وبلاگ</a>
+            <a href="about.html" class="active">درباره ما</a>
+            <a href="index.html#gamemodes">گیم مودها</a>
+            <a href="#" class="nav-btn">ورود / ثبت‌نام</a>
+        </div>
+    </header>
+
+    <div class="about-section">
+        <div class="about-card">
+            <h2>💎 درباره دایمند ماین</h2>
+            <p>
+                دایمند ماین، یک سرور ماینکرفت حرفه‌ای و دوستانه است که با هدف فراهم کردن بهترین تجربه بازی برای ایرانیان راه‌اندازی شده. 
+                ما اینجا جمع شدیم تا لحظات خوشی رو کنار هم بسازیم و خاطرات فراموش‌نشدنی رو در دنیای بی‌نهایت ماینکرفت رقم بزنیم.
+            </p>
+            <p>
+                از روز اول، هدف ما ایجاد محیطی امن، بدون لگ و با امکانات متنوع بوده. تیم ما شبانه‌روز تلاش می‌کنه تا سرور همیشه پایدار باشه و بتونید بدون هیچ مشکلی به بازی بپردازید.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <h2>✨ چرا دایمند ماین؟</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-emoji">🛡️</span>
+                    <h3>امنیت بالا</h3>
+                    <p>سیستم آنتی‌چیت پیشرفته و آنتی‌اکسپلویت برای حفظ امنیت و تجربه عادلانه بازی</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-emoji">🚀</span>
+                    <h3>پایداری و آنلاین ۲۴/۷</h3>
+                    <p>سرور با بالاترین کیفیت و بدون وقفه در تمام ساعات شبانه‌روز در دسترس است</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-emoji">🎮</span>
+                    <h3>گیم مودهای متنوع</h3>
+                    <p>از Survival گرفته تا SkyWars و BedWars، هر روز یه تجربه جدید منتظرته</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-emoji">👥</span>
+                    <h3>کمونیتی دوستانه</h3>
+                    <p>محیطی صمیمی و بدون توهین، مناسب برای همه گروه‌های سنی</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h2>📊 دایمند ماین در یک نگاه</h2>
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="stat-number">۶+</span>
+                    <span class="stat-label">گیم مود متنوع</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">۲۴/۷</span>
+                    <span class="stat-label">پشتیبانی آنلاین</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">۰ لگ</span>
+                    <span class="stat-label">تجربه روان</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">لحظات خوش</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h2>📞 ارتباط با ما</h2>
+            <p style="text-align: center;">
+                ما همیشه گوش‌شنو پیشنهادات و انتقادات شما هستیم.<br>
+                می‌توانید از طریق شبکه‌های اجتماعی یا ایمیل با ما در ارتباط باشید.
+            </p>
+            <div style="text-align: center; margin-top: 15px;">
+                <span style="color: rgb(85, 255, 255);">💬 دیسکورد:</span> <span style="color: #cccccc;">discord.gg/diamondmine</span><br>
+                <span style="color: rgb(85, 255, 255);">📧 ایمیل:</span> <span style="color: #cccccc;">support@diamondmine.ir</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+        
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
