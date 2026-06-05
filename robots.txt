@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://not-found4.github.io/DiamondMine/sitemap.xml
