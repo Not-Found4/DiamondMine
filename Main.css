@@ -292,6 +292,7 @@ header {
     color: rgb(85, 255, 255);
     font-family: ip;
     letter-spacing: 1px;
+    font-size: 14px;
 }
 
 .copy-btn {
