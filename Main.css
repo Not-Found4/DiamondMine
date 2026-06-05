@@ -3,6 +3,11 @@
     src: url('https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/font/Digi%20Craft%20Ultra%20Black.otf');
 }
 
+@font-face {
+    font-family: ip;
+    src: url('https://cdn.jsdelivr.net/gh/Not-Fond4/DiamondMine@main/font/minecraft-five-bold.otf');
+}
+
 * {
     font-family: mc;
     margin: 0;
@@ -285,7 +290,7 @@ header {
 
 .ip-address {
     color: rgb(85, 255, 255);
-    font-family: monospace;
+    font-family: ip;
     letter-spacing: 1px;
 }
 
