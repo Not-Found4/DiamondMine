@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: ip;
-    src: url('https://cdn.jsdelivr.net/gh/Not-Fond4/DiamondMine@main/font/minecraft-five-bold.otf');
+    src: url(font/minecraft-five-bold.otf);
 }
 
 * {
