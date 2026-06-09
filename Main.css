@@ -288,7 +288,7 @@ header {
 
 .ip-address {
     color: rgb(85, 255, 255);
-    font-family: 'Courier New', monospace;
+    font-family: ip;
     letter-spacing: 1px;
 }
 
