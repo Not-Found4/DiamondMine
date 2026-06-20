@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>درباره ما | دایمند ماین</title>
     <meta name="description" content="درباره سرور دایمند ماین - سروری برای لذت بردن با گیم مودهای متنوع و آنلاین ۲۴ ساعته">
-    <meta name="keywords" content="درباره ما, دایمند ماین, سرور ماینکرفت, تیم دایمند">
+    <meta name="keywords" content="درباره ما, دایمند ماین, سرور ماینکرفت, تیم دایمند, آرتان">
+    <meta name="author" content="Artan">
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png">
     <link rel="stylesheet" href="Main.css">
     <style>
-        /* استایل مخصوص صفحه درباره ما */
         .about-section {
             padding: 100px 20px 60px;
             max-width: 1000px;
@@ -17,7 +17,6 @@
             position: relative;
             z-index: 5;
         }
-        
         .about-card {
             background: rgba(15, 15, 15, 0.75);
             backdrop-filter: blur(15px);
@@ -27,7 +26,6 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
             margin-bottom: 30px;
         }
-        
         .about-card h2 {
             color: rgb(85, 255, 255);
             font-size: 32px;
@@ -35,7 +33,6 @@
             text-align: center;
             text-shadow: 0 0 10px rgba(85, 255, 255, 0.3);
         }
-        
         .about-card p {
             color: #cccccc;
             font-size: 16px;
@@ -43,14 +40,41 @@
             margin-bottom: 20px;
             text-align: justify;
         }
-        
+        .founder-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 24px;
+        }
+        .founder-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #1a3a3a, #0a1a1a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            border: 2px solid rgb(85, 255, 255);
+        }
+        .founder-info h3 {
+            color: rgb(85, 255, 255);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .founder-info p {
+            margin: 0;
+        }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
-        
         .feature-item {
             background: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
@@ -59,57 +83,41 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(85, 255, 255, 0.15);
         }
-        
         .feature-item:hover {
             transform: translateY(-5px);
             border-color: rgba(85, 255, 255, 0.4);
         }
-        
         .feature-emoji {
             font-size: 48px;
             display: block;
             margin-bottom: 15px;
         }
-        
         .feature-item h3 {
             color: rgb(85, 255, 255);
             font-size: 20px;
             margin-bottom: 10px;
         }
-        
         .feature-item p {
             color: #bbbbbb;
             font-size: 14px;
             line-height: 1.5;
             margin: 0;
         }
-        
-        .stats-row {
+        .social-links {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(85, 255, 255, 0.2);
+            margin-top: 20px;
         }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
+        .social-links a {
             color: rgb(85, 255, 255);
-            font-size: 36px;
-            font-weight: bold;
-            display: block;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.2s;
         }
-        
-        .stat-label {
-            color: #888888;
-            font-size: 14px;
+        .social-links a:hover {
+            opacity: 0.7;
         }
-        
         @media (max-width: 768px) {
             .about-section {
                 padding: 80px 15px 40px;
@@ -123,11 +131,9 @@
             .about-card p {
                 font-size: 14px;
             }
-            .feature-emoji {
-                font-size: 36px;
-            }
-            .feature-item h3 {
-                font-size: 18px;
+            .founder-section {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -139,7 +145,7 @@
 
     <header>
         <div class="logo-area">
-            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
+            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
             <div class="logo-text">
                 <div class="en">DiamondMine</div>
                 <div class="fa">دایمند ماین</div>
@@ -153,18 +159,53 @@
         </div>
         
         <div class="nav-menu" id="navMenu">
-            <a href="index.html">خانه</a>
-            <a href="blog.html">وبلاگ</a>
-            <a href="rules.html">قوانین</a>
-            <a href="about.html" class="active">درباره ما</a>
-            <a href="index.html#gamemodes">گیم مودها</a>
-            <a href="#" class="nav-btn">ورود / ثبت‌نام</a>
+            <a href="index.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-home"/>
+                </svg>
+                خانه
+            </a>
+            <a href="blog.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-blog"/>
+                </svg>
+                وبلاگ
+            </a>
+            <a href="about.html" class="active">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-about"/>
+                </svg>
+                درباره ما
+            </a>
+            <a href="index.html#gamemodes">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-gamemodes"/>
+                </svg>
+                گیم مودها
+            </a>
+            <a href="contact.html" class="nav-btn">
+                <svg width="18" height="18" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-contact"/>
+                </svg>
+                تماس با ما
+            </a>
+            <a href="rules.html" class="nav-btn" style="border-color: rgba(85, 255, 255, 0.7);">
+                <svg width="18" height="18" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-rules"/>
+                </svg>
+                قوانین
+            </a>
         </div>
     </header>
 
     <div class="about-section">
         <div class="about-card">
-            <h2>💎 درباره دایمند ماین</h2>
+            <h2>
+                <svg width="28" height="28" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                    <use href="./images/icons.svg#icon-diamond"/>
+                </svg>
+                درباره دایمند ماین
+            </h2>
             <p>
                 دایمند ماین، یک سرور ماینکرفت حرفه‌ای و دوستانه است که با هدف فراهم کردن بهترین تجربه بازی برای ایرانیان راه‌اندازی شده. 
                 ما اینجا جمع شدیم تا لحظات خوشی رو کنار هم بسازیم و خاطرات فراموش‌نشدنی رو در دنیای بی‌نهایت ماینکرفت رقم بزنیم.
@@ -175,7 +216,34 @@
         </div>
 
         <div class="about-card">
-            <h2>✨ چرا دایمند ماین؟</h2>
+            <h2>
+                <svg width="28" height="28" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                    <use href="./images/icons.svg#icon-players"/>
+                </svg>
+                بنیانگذار
+            </h2>
+            <div class="founder-section">
+                <div class="founder-avatar">💎</div>
+                <div class="founder-info">
+                    <h3>آرتان (Artan)</h3>
+                    <p>بنیان‌گذار و مدیر دایمند ماین</p>
+                    <p>عاشق ماینکرفت و برنامه‌نویسی از سال ۲۰۱۵</p>
+                    <div class="social-links">
+                        <a href="#">🎮 Discord</a>
+                        <a href="#">📧 Email</a>
+                        <a href="#">💬 Bale</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h2>
+                <svg width="28" height="28" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                    <use href="./images/icons.svg#icon-star"/>
+                </svg>
+                چرا دایمند ماین؟
+            </h2>
             <div class="features-grid">
                 <div class="feature-item">
                     <span class="feature-emoji">🛡️</span>
@@ -201,67 +269,55 @@
         </div>
 
         <div class="about-card">
-            <h2>📊 دایمند ماین در یک نگاه</h2>
-            <div class="stats-row">
-                <div class="stat">
-                    <span class="stat-number">۶+</span>
-                    <span class="stat-label">گیم مود متنوع</span>
+            <h2>
+                <svg width="28" height="28" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                    <use href="./images/icons.svg#icon-server"/>
+                </svg>
+                دایمند ماین در یک نگاه
+            </h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-emoji">🎮</span>
+                    <h3>۶+ گیم مود</h3>
+                    <p>تنوع بی‌نظیر برای هر سلیقه</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">۲۴/۷</span>
-                    <span class="stat-label">پشتیبانی آنلاین</span>
+                <div class="feature-item">
+                    <span class="feature-emoji">⏰</span>
+                    <h3>۲۴/۷ آنلاین</h3>
+                    <p>همیشه در دسترس</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">۰ لگ</span>
-                    <span class="stat-label">تجربه روان</span>
+                <div class="feature-item">
+                    <span class="feature-emoji">⚡</span>
+                    <h3>۰ لگ</h3>
+                    <p>تجربه بازی روان</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">لحظات خوش</span>
+                <div class="feature-item">
+                    <span class="feature-emoji">💎</span>
+                    <h3>۱۰۰۰+ عضو</h3>
+                    <p>جامعه فعال و پویا</p>
                 </div>
-            </div>
-        </div>
-
-        <div class="about-card">
-            <h2>📞 ارتباط با ما</h2>
-            <p style="text-align: center;">
-                ما همیشه گوش‌شنو پیشنهادات و انتقادات شما هستیم.<br>
-                می‌توانید از طریق شبکه‌های اجتماعی یا ایمیل با ما در ارتباط باشید.
-            </p>
-            <div style="text-align: center; margin-top: 15px;">
-                <span style="color: rgb(85, 255, 255);">💬 دیسکورد:</span> <span style="color: #cccccc;">discord.gg/diamondmine</span><br>
-                <span style="color: rgb(85, 255, 255);">📧 ایمیل:</span> <span style="color: #cccccc;">support@diamondmine.ir</span>
             </div>
         </div>
     </div>
 
-            <!-- ========== فوتر ========== -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
+                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
                 <div class="logo-text">
                     <div class="en">DiamondMine</div>
                     <div class="fa">دایمند ماین</div>
                 </div>
             </div>
             <div class="footer-social">
-                <a href="#" target="_blank" class="social-icon" aria-label="Discord">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 6L19 4H5L4 6V18L5 20H19L20 18V6Z" stroke="#55FFFF" stroke-width="1.5" fill="none"/>
-                        <circle cx="9" cy="12" r="1.5" fill="#55FFFF"/>
-                        <circle cx="15" cy="12" r="1.5" fill="#55FFFF"/>
-                        <path d="M8 8L10 10" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M16 8L14 10" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M8 16L12 14L16 16" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+                    <svg width="24" height="24">
+                        <use href="./images/icons.svg#icon-discord"/>
                     </svg>
                 </a>
-                <a href="#" target="_blank" class="social-icon" aria-label="Bale">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="9" stroke="#55FFFF" stroke-width="1.5" fill="none"/>
-                        <path d="M8 12H16" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M12 8L12 16" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <circle cx="12" cy="12" r="2" fill="#55FFFF"/>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Bale">
+                    <svg width="24" height="24">
+                        <use href="./images/icons.svg#icon-bale"/>
                     </svg>
                 </a>
             </div>
