@@ -15,7 +15,7 @@
 
     <header>
         <div class="logo-area">
-            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
+            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
             <div class="logo-text">
                 <div class="en">DiamondMine</div>
                 <div class="fa">دایمند ماین</div>
@@ -29,34 +29,89 @@
         </div>
         
         <div class="nav-menu" id="navMenu">
-            <a href="index.html">خانه</a>
-            <a href="blog.html">وبلاگ</a>
-            <a href="rules.html">قوانین</a>
-            <a href="#gamemodes">گیم مودها</a>
-            <a href="about.html">درباره ما</a>
-            <a href="#" class="nav-btn">ورود / ثبت‌نام</a>
+            <a href="index.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-home"/>
+                </svg>
+                خانه
+            </a>
+            <a href="blog.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-blog"/>
+                </svg>
+                وبلاگ
+            </a>
+            <a href="about.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-about"/>
+                </svg>
+                درباره ما
+            </a>
+            <a href="#gamemodes">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-gamemodes"/>
+                </svg>
+                گیم مودها
+            </a>
+            <a href="contact.html" class="nav-btn">
+                <svg width="18" height="18" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-contact"/>
+                </svg>
+                تماس با ما
+            </a>
+            <a href="rules.html" class="nav-btn" style="border-color: rgba(85, 255, 255, 0.7);">
+                <svg width="18" height="18" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-rules"/>
+                </svg>
+                قوانین
+            </a>
         </div>
     </header>
 
     <div class="server-status-card">
         <div class="card-header">
             <div class="status-indicator" id="statusLed"></div>
-            <h2>وضعیت سرور</h2>
+            <h2>
+                <svg width="24" height="24" style="display:inline-block; vertical-align:middle; margin-left:10px;">
+                    <use href="./images/icons.svg#icon-server"/>
+                </svg>
+                وضعیت سرور
+            </h2>
         </div>
         
         <div class="server-info">
             <div class="info-row">
-                <span class="info-label">🌐 وضعیت:</span>
+                <span class="info-label">
+                    <svg width="16" height="16" style="display:inline-block; vertical-align:middle; margin-left:4px;">
+                        <use href="./images/icons.svg#icon-server"/>
+                    </svg>
+                    🌐 وضعیت:
+                </span>
                 <span class="info-value" id="serverStatus">در حال اتصال...</span>
             </div>
             <div class="info-row">
-                <span class="info-label">👥 بازیکنان آنلاین:</span>
+                <span class="info-label">
+                    <svg width="16" height="16" style="display:inline-block; vertical-align:middle; margin-left:4px;">
+                        <use href="./images/icons.svg#icon-players"/>
+                    </svg>
+                    👥 بازیکنان آنلاین:
+                </span>
                 <span class="info-value" id="playerCount">--</span>
             </div>
             <div class="info-row">
-                <span class="info-label">💎 آی‌پی سرور:</span>
-                <span class="info-value ip-address" id="serverIp">mc.hypixel.net</span>
-                <button class="copy-btn" onclick="copyIP(event)">📋 کپی</button>
+                <span class="info-label">
+                    <svg width="16" height="16" style="display:inline-block; vertical-align:middle; margin-left:4px;">
+                        <use href="./images/icons.svg#icon-diamond"/>
+                    </svg>
+                    💎 آی‌پی سرور:
+                </span>
+                <span class="info-value ip-address" id="serverIp">play.diamondmine.ir</span>
+                <button class="copy-btn" onclick="copyIP(event)">
+                    <svg width="14" height="14" style="display:inline-block; vertical-align:middle; margin-left:4px;">
+                        <use href="./images/icons.svg#icon-copy"/>
+                    </svg>
+                    کپی
+                </button>
             </div>
         </div>
         
@@ -66,7 +121,12 @@
     </div>
 
     <section id="gamemodes" class="gamemodes-section">
-        <h2 class="section-title">🎮 گیم مودهای سرور</h2>
+        <h2 class="section-title">
+            <svg width="32" height="32" style="display:inline-block; vertical-align:middle; margin-left:10px;">
+                <use href="./images/icons.svg#icon-gamemodes"/>
+            </svg>
+            گیم مودهای سرور
+        </h2>
         <div class="gamemodes-grid">
             
             <div class="gamemode-card tilt-card">
@@ -74,7 +134,12 @@
                     <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/gamemode1.png" alt="Survival">
                 </div>
                 <div class="gamemode-content">
-                    <h3>⚔️ سروایول (Survival)</h3>
+                    <h3>
+                        <svg width="22" height="22" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                            <use href="./images/icons.svg#icon-pickaxe"/>
+                        </svg>
+                        سروایول (Survival)
+                    </h3>
                     <p>در این حالت، باید منابع جمع‌آوری کنی، ابزار بسازی و برابر هیولاها مقاومت کنی. تجربه‌ای کلاسیک و چالش‌برانگیز!</p>
                 </div>
             </div>
@@ -84,7 +149,12 @@
                     <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/gamemode2.png" alt="SkyWars">
                 </div>
                 <div class="gamemode-content">
-                    <h3>🏆 اسکای وارز (SkyWars)</h3>
+                    <h3>
+                        <svg width="22" height="22" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                            <use href="./images/icons.svg#icon-island"/>
+                        </svg>
+                        اسکای وارز (SkyWars)
+                    </h3>
                     <p>در جزایر معلق در آسمان، با تجهیزات محدود شروع می‌کنی و باید بقیه را از جزیره بیرون بزنی. نبردهای سریع و نفس‌گیر!</p>
                 </div>
             </div>
@@ -94,7 +164,12 @@
                     <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/gamemode3.png" alt="BedWars">
                 </div>
                 <div class="gamemode-content">
-                    <h3>🧩 بدوارز (BedWars)</h3>
+                    <h3>
+                        <svg width="22" height="22" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                            <use href="./images/icons.svg#icon-bed"/>
+                        </svg>
+                        بدوارز (BedWars)
+                    </h3>
                     <p>از تخت خودت محافظت کن و تخت بقیه را نابود کن. آخرین تیمی که تختش سالم بماند، برنده است. بازی تیمی و استراتژیک!</p>
                 </div>
             </div>
@@ -104,7 +179,12 @@
                     <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/gamemode4.png" alt="Creative">
                 </div>
                 <div class="gamemode-content">
-                    <h3>🎨 کریتیو (Creative)</h3>
+                    <h3>
+                        <svg width="22" height="22" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                            <use href="./images/icons.svg#icon-pencil"/>
+                        </svg>
+                        کریتیو (Creative)
+                    </h3>
                     <p>دنیایی بدون محدودیت برای ساختن هر چه می‌خواهی. با منابع نامحدود، قلعه، شهر و هر چیزی که تصور کنی را بساز!</p>
                 </div>
             </div>
@@ -114,7 +194,12 @@
                     <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/gamemode5.png" alt="Parkour">
                 </div>
                 <div class="gamemode-content">
-                    <h3>🏃 پارکور (Parkour)</h3>
+                    <h3>
+                        <svg width="22" height="22" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                            <use href="./images/icons.svg#icon-jump"/>
+                        </svg>
+                        پارکور (Parkour)
+                    </h3>
                     <p>مهارت خود را در پرش از موانع چالش‌برانگیز نشان بده. سریع‌ترین زمان را ثبت کن و جزو بهترین‌ها باش!</p>
                 </div>
             </div>
@@ -124,40 +209,36 @@
                     <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/gamemode6.png" alt="OneBlock">
                 </div>
                 <div class="gamemode-content">
-                    <h3>🟫 وان بلاک (OneBlock)</h3>
+                    <h3>
+                        <svg width="22" height="22" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                            <use href="./images/icons.svg#icon-block"/>
+                        </svg>
+                        وان بلاک (OneBlock)
+                    </h3>
                     <p>با یک بلوک شروع می‌کنی و با هر بار شکستن آن، منابع جدیدی به دست می‌آوری. یک چالش جذاب و متفاوت!</p>
                 </div>
             </div>
         </div>
     </section>
 
-            <!-- ========== فوتر ========== -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
+                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
                 <div class="logo-text">
                     <div class="en">DiamondMine</div>
                     <div class="fa">دایمند ماین</div>
                 </div>
             </div>
             <div class="footer-social">
-                <a href="#" target="_blank" class="social-icon" aria-label="Discord">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 6L19 4H5L4 6V18L5 20H19L20 18V6Z" stroke="#55FFFF" stroke-width="1.5" fill="none"/>
-                        <circle cx="9" cy="12" r="1.5" fill="#55FFFF"/>
-                        <circle cx="15" cy="12" r="1.5" fill="#55FFFF"/>
-                        <path d="M8 8L10 10" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M16 8L14 10" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M8 16L12 14L16 16" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+                    <svg width="24" height="24">
+                        <use href="./images/icons.svg#icon-discord"/>
                     </svg>
                 </a>
-                <a href="#" target="_blank" class="social-icon" aria-label="Bale">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="9" stroke="#55FFFF" stroke-width="1.5" fill="none"/>
-                        <path d="M8 12H16" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M12 8L12 16" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <circle cx="12" cy="12" r="2" fill="#55FFFF"/>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Bale">
+                    <svg width="24" height="24">
+                        <use href="./images/icons.svg#icon-bale"/>
                     </svg>
                 </a>
             </div>
@@ -169,7 +250,7 @@
     </footer>
 
     <script>
-        const SERVER_IP = "mc.hypixel.net";
+        const SERVER_IP = "play.diamondmine.ir";
         const SERVER_PORT = "25565";
         
         document.getElementById("serverIp").innerText = SERVER_IP;
