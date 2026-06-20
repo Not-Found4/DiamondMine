@@ -2,8 +2,11 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>قوانین | دایمند ماین</title>
+    <meta name="description" content="قوانین سرور دایمند ماین - راهنمای رفتار و حریم خصوصی">
+    <meta name="keywords" content="قوانین, ماینکرفت, سرور, دایمند ماین, حریم خصوصی">
+    <meta name="author" content="Artan">
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png">
     <link rel="stylesheet" href="Main.css">
     <style>
@@ -62,22 +65,67 @@
 
     <header>
         <div class="logo-area">
-            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
+            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
             <div class="logo-text">
                 <div class="en">DiamondMine</div>
                 <div class="fa">دایمند ماین</div>
             </div>
         </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
         <div class="nav-menu" id="navMenu">
-            <a href="index.html">خانه</a>
-            <a href="blog.html">وبلاگ</a>
-            <a href="about.html">درباره ما</a>
+            <a href="index.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-home"/>
+                </svg>
+                خانه
+            </a>
+            <a href="blog.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-blog"/>
+                </svg>
+                وبلاگ
+            </a>
+            <a href="about.html">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-about"/>
+                </svg>
+                درباره ما
+            </a>
+            <a href="index.html#gamemodes">
+                <svg width="20" height="20" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-gamemodes"/>
+                </svg>
+                گیم مودها
+            </a>
+            <a href="contact.html" class="nav-btn">
+                <svg width="18" height="18" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-contact"/>
+                </svg>
+                تماس با ما
+            </a>
+            <a href="rules.html" class="nav-btn" style="border-color: rgba(85, 255, 255, 0.7);">
+                <svg width="18" height="18" style="display:inline-block; vertical-align:middle; margin-left:6px;">
+                    <use href="./images/icons.svg#icon-rules"/>
+                </svg>
+                قوانین
+            </a>
         </div>
     </header>
 
     <div class="rules-section">
         <div class="rules-card">
-            <h2>📜 قوانین سرور</h2>
+            <h2>
+                <svg width="24" height="24" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                    <use href="./images/icons.svg#icon-rules"/>
+                </svg>
+                قوانین سرور
+            </h2>
             <p>برای حفظ تجربه‌ای عادلانه و دوستانه برای همه، لطفاً قوانین زیر را رعایت کنید:</p>
             <ul>
                 <li>🚫 <strong>هک و کلاینت‌های غیرمجاز</strong> – استفاده از هرگونه هک، x-ray، یا کلاینت‌های تغییردهنده گیم‌پلی ممنوع است.</li>
@@ -85,11 +133,17 @@
                 <li>🚫 <strong>اسپم و تبلیغات</strong> – ارسال پیام‌های تکراری یا تبلیغ سرورهای دیگر ممنوع است.</li>
                 <li>🚫 <strong>گرفت کردن (Griefing)</strong> – تخریب یا دزدیدن سازه‌های دیگران بدون اجازه ممنوع است.</li>
                 <li>🚫 <strong>استفاده از باگ‌ها (Exploit)</strong> – سوءاستفاده از باگ‌های بازی برای به دست آوردن امتیاز غیرمجاز ممنوع است.</li>
+                <li>🚫 <strong>اسم‌های نامناسب</strong> – استفاده از اسم‌های توهین‌آمیز یا غیراخلاقی ممنوع است.</li>
             </ul>
         </div>
 
         <div class="rules-card">
-            <h2>🔒 حریم خصوصی</h2>
+            <h2>
+                <svg width="24" height="24" style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                    <use href="./images/icons.svg#icon-alert"/>
+                </svg>
+                حریم خصوصی
+            </h2>
             <p>ما به حریم خصوصی شما احترام می‌گذاریم و اطلاعات شما را به هیچ‌کس نمی‌فروشیم یا به اشتراک نمی‌گذاریم.</p>
             <ul>
                 <li>🔐 <strong>اطلاعات ذخیره‌شده</strong>: فقط اطلاعات ضروری مثل نام کاربری و ایمیل ذخیره می‌شوند.</li>
@@ -102,17 +156,49 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
+                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
                 <div class="logo-text">
                     <div class="en">DiamondMine</div>
                     <div class="fa">دایمند ماین</div>
                 </div>
             </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+                    <svg width="24" height="24">
+                        <use href="./images/icons.svg#icon-discord"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Bale">
+                    <svg width="24" height="24">
+                        <use href="./images/icons.svg#icon-bale"/>
+                    </svg>
+                </a>
+            </div>
         </div>
         <div class="footer-copyright">
-            © 2026 DiamondMine | تمامی حقوق محفوظ است
+            © 2026 DiamondMine | تمامی حقوق محفوظ است<br>
+            Made By Me (Artan) - ساخته شده توسط من (آرتان)
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+        
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
