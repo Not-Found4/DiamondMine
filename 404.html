@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه پیدا نشد | دایمند ماین</title>
+    <title>404 | کریپر رفت!</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png">
     <link rel="stylesheet" href="Main.css">
     <style>
@@ -16,133 +16,160 @@
         body {
             background: #0a0a0a;
             min-height: 100vh;
-            overflow: hidden;
-            font-family: mc, Arial, sans-serif;
-        }
-
-        .error-wrapper {
-            position: relative;
-            z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .wrapper {
             text-align: center;
-        }
-
-        /* ========== کریپر انیمیشن ========== */
-        .creeper-container {
             position: relative;
-            width: 200px;
-            height: 200px;
-            margin-bottom: 30px;
-            animation: float 3s ease-in-out infinite;
+            z-index: 5;
         }
 
-        .creeper-face {
+        .creeper-area {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        /* ---------- کریپر ---------- */
+        .creeper {
+            width: 140px;
+            height: 180px;
+            background: #3a7a3a;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,255,0,0.1);
+            transition: all 0.3s;
+            margin: 0 auto;
+        }
+
+        /* سر کریپر */
+        .creeper-head {
             width: 100%;
             height: 100%;
-            background: #2d5a27;
-            border-radius: 20px;
+            background: #3a7a3a;
+            border-radius: 10px;
             position: relative;
-            box-shadow: 0 0 50px rgba(85, 255, 255, 0.2);
-            border: 3px solid #1a3a1a;
+            border: 3px solid #1e4a1e;
         }
 
-        /* چشم‌های کریپر */
+        /* چشم‌ها (حالت نگاه به چپ) */
         .eye {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #1a1a1a;
+            width: 22px;
+            height: 28px;
+            background: #111;
             border-radius: 4px;
-            top: 40px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+            top: 30px;
+            overflow: hidden;
         }
         .eye::after {
             content: '';
             position: absolute;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: #55FFFF;
             border-radius: 2px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation: blink 4s infinite;
         }
-        .eye-left { left: 25px; }
-        .eye-right { right: 25px; }
+        .eye-left {
+            left: 18px;
+        }
+        .eye-right {
+            right: 18px;
+        }
 
-        /* دهان کریپر (4 نقطه) */
+        /* مردمک‌ها برای نگاه به چپ */
+        .eye-left::after {
+            transform: translate(-80%, -50%);
+        }
+        .eye-right::after {
+            transform: translate(-80%, -50%);
+        }
+
+        /* دهان کریپر (مربع‌های خالی) */
         .mouth {
             position: absolute;
-            bottom: 40px;
+            bottom: 28px;
             left: 50%;
             transform: translateX(-50%);
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 6px;
         }
         .mouth span {
-            width: 15px;
-            height: 15px;
-            background: #1a1a1a;
+            width: 14px;
+            height: 14px;
+            background: #111;
             border-radius: 2px;
-            animation: mouthPulse 2s infinite;
-        }
-        .mouth span:nth-child(2) { animation-delay: 0.2s; }
-        .mouth span:nth-child(3) { animation-delay: 0.4s; }
-        .mouth span:nth-child(4) { animation-delay: 0.6s; }
-
-        @keyframes blink {
-            0%, 90%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            95% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
         }
 
-        @keyframes mouthPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(0.8); opacity: 0.5; }
+        /* ---------- افکت انفجار (پیکسلی) ---------- */
+        .explosion {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: none;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+        .explosion.active {
+            opacity: 1;
         }
 
-        /* ========== تیتر و متن ========== */
+        .pixel {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ffaa00;
+            border-radius: 2px;
+            box-shadow: 0 0 6px #ff8800;
+            animation: explode 0.7s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0.3) rotate(180deg);
+            }
+        }
+
+        /* ---------- دکمه‌ها ---------- */
         .error-title {
-            color: rgb(85, 255, 255);
             font-size: 72px;
-            font-weight: bold;
-            text-shadow: 0 0 30px rgba(85, 255, 255, 0.4);
-            margin-bottom: 10px;
-            animation: glow 2s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 30px rgba(85, 255, 255, 0.4); }
-            50% { text-shadow: 0 0 60px rgba(85, 255, 255, 0.8), 0 0 120px rgba(85, 255, 255, 0.3); }
+            color: #55FFFF;
+            text-shadow: 0 0 20px rgba(85,255,255,0.4);
+            margin: 10px 0 5px;
         }
 
         .error-sub {
-            color: #cccccc;
-            font-size: 24px;
-            margin-bottom: 10px;
+            color: #ccc;
+            font-size: 20px;
+            margin-bottom: 5px;
         }
 
         .error-desc {
-            color: #888888;
-            font-size: 16px;
-            max-width: 500px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 25px;
         }
 
-        /* ========== دکمه‌ها ========== */
-        .error-buttons {
+        .btn-group {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
@@ -150,173 +177,167 @@
         }
 
         .btn-404 {
-            display: inline-block;
-            padding: 12px 30px;
+            padding: 10px 28px;
             border-radius: 40px;
             text-decoration: none;
-            font-size: 16px;
-            transition: all 0.3s;
-            font-family: mc, Arial, sans-serif;
+            font-size: 15px;
+            background: rgba(85,255,255,0.08);
+            border: 1px solid rgba(85,255,255,0.3);
+            color: #55FFFF;
+            transition: 0.2s;
+            font-family: inherit;
+            cursor: pointer;
         }
 
-        .btn-primary {
-            background: rgba(85, 255, 255, 0.15);
-            border: 1px solid rgba(85, 255, 255, 0.5);
-            color: rgb(85, 255, 255);
+        .btn-404:hover {
+            background: rgba(85,255,255,0.2);
+            transform: scale(1.03);
         }
 
-        .btn-primary:hover {
-            background: rgba(85, 255, 255, 0.3);
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(85, 255, 255, 0.2);
+        .btn-404-outline {
+            border-color: rgba(255,255,255,0.15);
+            color: #aaa;
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #cccccc;
+        .btn-404-outline:hover {
+            border-color: rgba(255,255,255,0.4);
+            color: #fff;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.05);
+        .btn-explode {
+            background: rgba(255,80,80,0.15);
+            border-color: rgba(255,80,80,0.4);
+            color: #ff6666;
         }
 
-        /* ========== ذرات در پس‌زمینه ========== */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
+        .btn-explode:hover {
+            background: rgba(255,80,80,0.3);
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(85, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: particleFloat linear infinite;
-        }
-
-        @keyframes particleFloat {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
-        }
-
-        /* ========== فوتر ========== */
-        .error-footer {
-            position: absolute;
-            bottom: 20px;
-            color: #444;
-            font-size: 12px;
-            z-index: 5;
-            text-align: center;
-            width: 100%;
-        }
-
-        /* ========== موبایل ========== */
-        @media (max-width: 768px) {
-            .error-title { font-size: 48px; }
-            .error-sub { font-size: 18px; }
-            .creeper-container { width: 150px; height: 150px; }
-            .eye { width: 22px; height: 22px; top: 30px; }
-            .eye::after { width: 8px; height: 8px; }
-            .eye-left { left: 20px; }
-            .eye-right { right: 20px; }
-            .mouth { gap: 6px; bottom: 30px; }
-            .mouth span { width: 10px; height: 10px; }
-            .btn-404 { padding: 10px 20px; font-size: 14px; }
-        }
-
-        @media (max-width: 480px) {
-            .error-title { font-size: 36px; }
-            .error-sub { font-size: 16px; }
-            .creeper-container { width: 120px; height: 120px; }
-            .eye { width: 18px; height: 18px; top: 24px; }
-            .eye::after { width: 6px; height: 6px; }
-            .eye-left { left: 15px; }
-            .eye-right { right: 15px; }
-            .mouth { gap: 4px; bottom: 22px; }
-            .mouth span { width: 8px; height: 8px; }
+        /* ---------- موبایل ---------- */
+        @media (max-width: 600px) {
+            .creeper {
+                width: 110px;
+                height: 140px;
+            }
+            .eye {
+                width: 18px;
+                height: 22px;
+                top: 22px;
+            }
+            .eye::after {
+                width: 8px;
+                height: 8px;
+            }
+            .eye-left {
+                left: 14px;
+            }
+            .eye-right {
+                right: 14px;
+            }
+            .mouth {
+                gap: 4px;
+                bottom: 20px;
+            }
+            .mouth span {
+                width: 10px;
+                height: 10px;
+            }
+            .error-title {
+                font-size: 48px;
+            }
+            .pixel {
+                width: 8px;
+                height: 8px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ========== پس‌زمینه متحرک ========== -->
-    <div class="bg-tilt" id="bgTilt"></div>
+    <div class="bg-tilt"></div>
     <div class="blur-overlay"></div>
 
-    <!-- ========== ذرات ========== -->
-    <div class="particles" id="particles"></div>
+    <div class="wrapper">
 
-    <!-- ========== محتوای اصلی ========== -->
-    <div class="error-wrapper">
-        <!-- کریپر متحرک -->
-        <div class="creeper-container">
-            <div class="creeper-face">
-                <div class="eye eye-left"></div>
-                <div class="eye eye-right"></div>
-                <div class="mouth">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <!-- کریپر + انفجار -->
+        <div class="creeper-area">
+            <div class="creeper" id="creeper">
+                <div class="creeper-head">
+                    <div class="eye eye-left"></div>
+                    <div class="eye eye-right"></div>
+                    <div class="mouth">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
                 </div>
             </div>
+            <div class="explosion" id="explosion"></div>
         </div>
 
-        <h1 class="error-title">💥 ۴۰۴</h1>
-        <h2 class="error-sub">اوه! کریپر خوردش!</h2>
-        <p class="error-desc">
-            انگار یه کریپر انفجاری زده و صفحه رو نابود کرده! 😱<br>
-            صفحه‌ای که دنبالش هستی وجود نداره یا جابه‌جا شده.
-        </p>
-
-        <div class="error-buttons">
-            <a href="index.html" class="btn-404 btn-primary">🏠 برگشت به خونه</a>
-            <a href="blog.html" class="btn-404 btn-secondary">📖 برو به بلاگ</a>
+        <div class="error-title">۴۰۴</div>
+        <div class="error-sub">💥 کریپر رفت!</div>
+        <div class="error-desc">
+            انگار یه کریپر این صفحه رو منفجر کرده.  
+            برو به خونه یا بلاگ، اونجا امن‌تره.
         </div>
 
-        <div class="error-footer">
-            <p style="color: #444; font-size: 12px;">© 2026 DiamondMine</p>
+        <div class="btn-group">
+            <a href="index.html" class="btn-404">🏠 خونه</a>
+            <a href="blog.html" class="btn-404 btn-404-outline">📖 وبلاگ</a>
+            <button class="btn-404 btn-explode" id="explodeBtn">💥 بزن ترکوندنش!</button>
         </div>
+
     </div>
 
     <script>
-        // ========== ساخت ذرات ==========
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const count = window.innerWidth < 768 ? 30 : 60;
-            
+        const creeper = document.getElementById('creeper');
+        const explosion = document.getElementById('explosion');
+        const btn = document.getElementById('explodeBtn');
+
+        function explodeCreeper() {
+            // پاک کردن انفجار قبلی
+            explosion.innerHTML = '';
+            explosion.classList.remove('active');
+
+            // ایجاد 50 تا پیکسل با رنگ‌های مختلف
+            const colors = ['#ffaa00', '#ff8800', '#ff4400', '#ffee00', '#ffcc00', '#55FF55', '#FFFFFF'];
+            const count = 50;
+
             for (let i = 0; i < count; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.width = (2 + Math.random() * 4) + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.animationDuration = (8 + Math.random() * 12) + 's';
-                particle.style.animationDelay = (Math.random() * 10) + 's';
-                container.appendChild(particle);
+                const pixel = document.createElement('div');
+                pixel.className = 'pixel';
+                const angle = Math.random() * 360;
+                const distance = 80 + Math.random() * 180;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance - 40;
+                pixel.style.setProperty('--tx', tx + 'px');
+                pixel.style.setProperty('--ty', ty + 'px');
+                pixel.style.background = colors[Math.floor(Math.random() * colors.length)];
+                pixel.style.left = (40 + Math.random() * 50) + '%';
+                pixel.style.top = (30 + Math.random() * 40) + '%';
+                pixel.style.width = (8 + Math.random() * 12) + 'px';
+                pixel.style.height = pixel.style.width;
+                pixel.style.animationDuration = (0.5 + Math.random() * 0.6) + 's';
+                explosion.appendChild(pixel);
             }
+
+            explosion.classList.add('active');
+
+            // کریپر محو بشه
+            creeper.style.transition = 'opacity 0.3s';
+            creeper.style.opacity = '0.2';
+
+            // بعد از انفجار، کریپر دوباره برگرده
+            setTimeout(() => {
+                explosion.classList.remove('active');
+                creeper.style.opacity = '1';
+            }, 1200);
         }
 
-        // ========== افکت استیکر روی کریپر (اختیاری) ==========
-        document.querySelector('.creeper-container').addEventListener('click', function() {
-            this.style.animation = 'none';
-            setTimeout(() => {
-                this.style.animation = 'float 3s ease-in-out infinite';
-            }, 100);
-        });
+        btn.addEventListener('click', explodeCreeper);
 
-        window.addEventListener('load', createParticles);
+        // انفجار خودکار یک بار برای خوش‌آمدگویی
+        setTimeout(explodeCreeper, 500);
     </script>
 
 </body>
