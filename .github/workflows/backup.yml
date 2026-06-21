@@ -23,6 +23,6 @@ jobs:
           BALE_TOKEN: ${{ secrets.BALE_BOT_TOKEN }}
           CHAT_ID: ${{ secrets.BALE_CHAT_ID }}
         run: |
-          curl -s -X POST https://tapi.bale.ai/bot<TOKEN>/sendDocument \
+          curl -s -X POST "https://tapi.bale.ai/bot<TOKEN>/sendDocument" \
             -F "chat_id=$CHAT_ID" \
             -F "document=@backup.bundle"
