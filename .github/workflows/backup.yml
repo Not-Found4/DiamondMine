@@ -2,7 +2,7 @@ name: پشتیبان‌گیری خودکار و ارسال به بله
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '30 20,2,8,14 * * *'
   workflow_dispatch:
 
 jobs:
