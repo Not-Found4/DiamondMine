@@ -7,97 +7,317 @@
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png">
     <link rel="stylesheet" href="Main.css">
     <style>
-        .error-section {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: mc, Arial, sans-serif;
+        }
+
+        .error-wrapper {
+            position: relative;
+            z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 70vh;
-            padding: 100px 20px;
-            position: relative;
-            z-index: 5;
+            min-height: 100vh;
+            padding: 20px;
             text-align: center;
         }
-        .error-section h1 {
-            font-size: 72px;
+
+        /* ========== کریپر انیمیشن ========== */
+        .creeper-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .creeper-face {
+            width: 100%;
+            height: 100%;
+            background: #2d5a27;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(85, 255, 255, 0.2);
+            border: 3px solid #1a3a1a;
+        }
+
+        /* چشم‌های کریپر */
+        .eye {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            top: 40px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+        }
+        .eye::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #55FFFF;
+            border-radius: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: blink 4s infinite;
+        }
+        .eye-left { left: 25px; }
+        .eye-right { right: 25px; }
+
+        /* دهان کریپر (4 نقطه) */
+        .mouth {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .mouth span {
+            width: 15px;
+            height: 15px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            animation: mouthPulse 2s infinite;
+        }
+        .mouth span:nth-child(2) { animation-delay: 0.2s; }
+        .mouth span:nth-child(3) { animation-delay: 0.4s; }
+        .mouth span:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes blink {
+            0%, 90%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            95% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+        }
+
+        @keyframes mouthPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(0.8); opacity: 0.5; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* ========== تیتر و متن ========== */
+        .error-title {
             color: rgb(85, 255, 255);
-            text-shadow: 0 0 20px rgba(85,255,255,0.3);
+            font-size: 72px;
+            font-weight: bold;
+            text-shadow: 0 0 30px rgba(85, 255, 255, 0.4);
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite;
         }
-        .error-section h2 {
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 30px rgba(85, 255, 255, 0.4); }
+            50% { text-shadow: 0 0 60px rgba(85, 255, 255, 0.8), 0 0 120px rgba(85, 255, 255, 0.3); }
+        }
+
+        .error-sub {
             color: #cccccc;
-            font-size: 28px;
-            margin: 20px 0;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
-        .error-section p {
+
+        .error-desc {
             color: #888888;
             font-size: 16px;
             max-width: 500px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
         }
-        .error-section .nav-btn {
-            margin-top: 30px;
+
+        /* ========== دکمه‌ها ========== */
+        .error-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-404 {
             display: inline-block;
             padding: 12px 30px;
-            background: rgba(85, 255, 255, 0.15);
-            border: 1px solid rgba(85, 255, 255, 0.4);
             border-radius: 40px;
-            color: rgb(85, 255, 255);
             text-decoration: none;
-            transition: all 0.2s;
+            font-size: 16px;
+            transition: all 0.3s;
+            font-family: mc, Arial, sans-serif;
         }
-        .error-section .nav-btn:hover {
+
+        .btn-primary {
+            background: rgba(85, 255, 255, 0.15);
+            border: 1px solid rgba(85, 255, 255, 0.5);
+            color: rgb(85, 255, 255);
+        }
+
+        .btn-primary:hover {
             background: rgba(85, 255, 255, 0.3);
-            transform: scale(1.02);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(85, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #cccccc;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* ========== ذرات در پس‌زمینه ========== */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(85, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* ========== فوتر ========== */
+        .error-footer {
+            position: absolute;
+            bottom: 20px;
+            color: #444;
+            font-size: 12px;
+            z-index: 5;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* ========== موبایل ========== */
+        @media (max-width: 768px) {
+            .error-title { font-size: 48px; }
+            .error-sub { font-size: 18px; }
+            .creeper-container { width: 150px; height: 150px; }
+            .eye { width: 22px; height: 22px; top: 30px; }
+            .eye::after { width: 8px; height: 8px; }
+            .eye-left { left: 20px; }
+            .eye-right { right: 20px; }
+            .mouth { gap: 6px; bottom: 30px; }
+            .mouth span { width: 10px; height: 10px; }
+            .btn-404 { padding: 10px 20px; font-size: 14px; }
+        }
+
+        @media (max-width: 480px) {
+            .error-title { font-size: 36px; }
+            .error-sub { font-size: 16px; }
+            .creeper-container { width: 120px; height: 120px; }
+            .eye { width: 18px; height: 18px; top: 24px; }
+            .eye::after { width: 6px; height: 6px; }
+            .eye-left { left: 15px; }
+            .eye-right { right: 15px; }
+            .mouth { gap: 4px; bottom: 22px; }
+            .mouth span { width: 8px; height: 8px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ========== پس‌زمینه متحرک ========== -->
     <div class="bg-tilt" id="bgTilt"></div>
     <div class="blur-overlay"></div>
 
-    <header>
-        <div class="logo-area">
-            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
-            <div class="logo-text">
-                <div class="en">DiamondMine</div>
-                <div class="fa">دایمند ماین</div>
-            </div>
-        </div>
-    </header>
+    <!-- ========== ذرات ========== -->
+    <div class="particles" id="particles"></div>
 
-    <div class="error-section">
-        <h1>💎 ۴۰۴</h1>
-        <h2>صفحه پیدا نشد!</h2>
-        <p>متأسفیم، صفحه‌ای که دنبالش هستید وجود ندارد یا جابه‌جا شده است.</p>
-        <a href="index.html" class="nav-btn">🏠 بازگشت به خانه</a>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگو">
-                <div class="logo-text">
-                    <div class="en">DiamondMine</div>
-                    <div class="fa">دایمند ماین</div>
+    <!-- ========== محتوای اصلی ========== -->
+    <div class="error-wrapper">
+        <!-- کریپر متحرک -->
+        <div class="creeper-container">
+            <div class="creeper-face">
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+                <div class="mouth">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-            <div class="footer-social">
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 6L19 4H5L4 6V18L5 20H19L20 18V6Z" stroke="#55FFFF" stroke-width="1.5" fill="none"/>
-                        <circle cx="9" cy="12" r="1.5" fill="#55FFFF"/>
-                        <circle cx="15" cy="12" r="1.5" fill="#55FFFF"/>
-                        <path d="M8 8L10 10" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M16 8L14 10" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M8 16L12 14L16 16" stroke="#55FFFF" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                </a>
-            </div>
         </div>
-        <div class="footer-copyright">
-            © 2026 DiamondMine | تمامی حقوق محفوظ است
+
+        <h1 class="error-title">💥 ۴۰۴</h1>
+        <h2 class="error-sub">اوه! کریپر خوردش!</h2>
+        <p class="error-desc">
+            انگار یه کریپر انفجاری زده و صفحه رو نابود کرده! 😱<br>
+            صفحه‌ای که دنبالش هستی وجود نداره یا جابه‌جا شده.
+        </p>
+
+        <div class="error-buttons">
+            <a href="index.html" class="btn-404 btn-primary">🏠 برگشت به خونه</a>
+            <a href="blog.html" class="btn-404 btn-secondary">📖 برو به بلاگ</a>
         </div>
-    </footer>
+
+        <div class="error-footer">
+            <p style="color: #444; font-size: 12px;">© 2026 DiamondMine</p>
+        </div>
+    </div>
+
+    <script>
+        // ========== ساخت ذرات ==========
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const count = window.innerWidth < 768 ? 30 : 60;
+            
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = (2 + Math.random() * 4) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDuration = (8 + Math.random() * 12) + 's';
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // ========== افکت استیکر روی کریپر (اختیاری) ==========
+        document.querySelector('.creeper-container').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'float 3s ease-in-out infinite';
+            }, 100);
+        });
+
+        window.addEventListener('load', createParticles);
+    </script>
 
 </body>
 </html>
