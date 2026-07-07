@@ -709,6 +709,143 @@ footer {
     .footer-logo .logo-text .en {
         font-size: 16px;
     }
+
+    /* ========== صفحه پیشنهادات ========== */
+.suggestion-section {
+    padding: 100px 20px 60px;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+.suggestion-card {
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(15px);
+    border-radius: 32px;
+    padding: 40px;
+    border: 1px solid rgba(85, 255, 255, 0.25);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.suggestion-card h2 {
+    color: rgb(85, 255, 255);
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(85, 255, 255, 0.3);
+}
+
+.suggestion-card .sub {
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #cccccc;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.form-group label .required {
+    color: #ff6666;
+    margin-right: 4px;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(85, 255, 255, 0.2);
+    border-radius: 16px;
+    color: #ffffff;
+    font-family: mc, Arial, sans-serif;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.form-group select option {
+    background: #1a1a1a;
+}
+
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgb(85, 255, 255);
+    box-shadow: 0 0 15px rgba(85, 255, 255, 0.15);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, rgba(85, 255, 255, 0.2), rgba(85, 255, 255, 0.05));
+    border: 1px solid rgba(85, 255, 255, 0.5);
+    border-radius: 40px;
+    color: rgb(85, 255, 255);
+    font-size: 16px;
+    font-family: mc, Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: rgba(85, 255, 255, 0.3);
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(85, 255, 255, 0.15);
+}
+
+.success-msg {
+    display: none;
+    text-align: center;
+    color: #4CAF50;
+    padding: 15px;
+    border-radius: 16px;
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    margin-top: 20px;
+}
+
+.success-msg.show {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .row-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .suggestion-section {
+        padding: 80px 15px 40px;
+    }
+    .suggestion-card {
+        padding: 25px;
+    }
+    .suggestion-card h2 {
+        font-size: 26px;
+    }
+}
     
     .footer-logo .logo-text .fa {
         font-size: 10px;
