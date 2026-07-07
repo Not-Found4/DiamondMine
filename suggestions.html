@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>پیشنهادات | دایمند ماین</title>
+    <meta name="description" content="پیشنهادات و نظرات خود را برای بهبود سرور دایمند ماین با ما در میان بگذارید.">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png">
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+
+    <div class="bg-tilt" id="bgTilt"></div>
+    <div class="blur-overlay"></div>
+
+    <header>
+        <div class="logo-area">
+            <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
+            <div class="logo-text">
+                <div class="en">DiamondMine</div>
+                <div class="fa">دایمند ماین</div>
+            </div>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html">خانه</a>
+            <a href="blog.html">وبلاگ</a>
+            <a href="about.html">درباره ما</a>
+            <a href="index.html#gamemodes">گیم مودها</a>
+            <a href="contact.html" class="nav-btn">تماس با ما</a>
+            <a href="suggestions.html" class="nav-btn" style="border-color: rgba(85, 255, 255, 0.7);">پیشنهادات</a>
+        </div>
+    </header>
+
+    <div class="suggestion-section">
+        <div class="suggestion-card">
+            <h2>💎 پیشنهادات شما</h2>
+            <p class="sub">نظرات و ایده‌هایتان برای بهتر شدن دایمند ماین</p>
+
+            <form id="suggestionForm">
+                <div class="form-group">
+                    <label>نوع پیشنهاد <span class="required">*</span></label>
+                    <select id="type" required>
+                        <option value="">انتخاب کنید...</option>
+                        <option value="gamemode">گیم مود جدید</option>
+                        <option value="improvement">بهبود سرور</option>
+                        <option value="bug">گزارش باگ / مشکل</option>
+                        <option value="feature">امکانات جدید</option>
+                        <option value="other">سایر</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>اولویت <span class="required">*</span></label>
+                    <select id="priority" required>
+                        <option value="">انتخاب کنید...</option>
+                        <option value="low">کم</option>
+                        <option value="medium">متوسط</option>
+                        <option value="high">بالا</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>موضوع <span class="required">*</span></label>
+                    <input type="text" id="subject" placeholder="موضوع پیشنهاد..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>توضیحات کامل <span class="required">*</span></label>
+                    <textarea id="message" placeholder="پیشنهاد خود را به طور کامل توضیح دهید..." required></textarea>
+                </div>
+
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>نام شما <span class="required">*</span></label>
+                        <input type="text" id="name" placeholder="نام و نام خانوادگی" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ایمیل</label>
+                        <input type="email" id="email" placeholder="ایمیل (اختیاری)">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">🚀 ارسال پیشنهاد</button>
+            </form>
+
+            <div id="successMsg" class="success-msg">
+                ✅ پیشنهاد شما با موفقیت ارسال شد!<br>
+                <span style="font-size:13px;color:#888;">از همراهی شما متشکریم 🙌</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://cdn.jsdelivr.net/gh/Not-Found4/DiamondMine@main/images/ii.png" alt="لوگوی دایمند ماین">
+                <div class="logo-text">
+                    <div class="en">DiamondMine</div>
+                    <div class="fa">دایمند ماین</div>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#55FFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 7c-3 1-4 5-2 8" />
+                        <path d="M15 7c3 1 4 5 2 8" />
+                        <circle cx="8" cy="17" r="2" />
+                        <circle cx="16" cy="17" r="2" />
+                    </svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Bale">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#55FFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M9 10h.01M15 10h.01M9.5 14.5c.8 1 2 1.5 3.5 1.5s2.7-.5 3.5-1.5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2026 DiamondMine | تمامی حقوق محفوظ است<br>
+            Made By Me (Artan) - ساخته شده توسط من (آرتان)
+        </div>
+    </footer>
+
+    <script>
+        // ===== منوی همبرگر =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+
+        // ===== فرم پیشنهادات =====
+        document.getElementById('suggestionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const type = document.getElementById('type').value;
+            const priority = document.getElementById('priority').value;
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const name = document.getElementById('name').value.trim();
+
+            if (!type || !priority || !subject || !message || !name) {
+                alert('لطفاً همه فیلدهای ضروری (علامت‌دار) را پر کنید.');
+                return;
+            }
+
+            const suggestions = JSON.parse(localStorage.getItem('suggestions') || '[]');
+            suggestions.push({
+                id: Date.now(),
+                type,
+                priority,
+                subject,
+                message,
+                name,
+                email: document.getElementById('email').value.trim(),
+                date: new Date().toLocaleDateString('fa-IR')
+            });
+            localStorage.setItem('suggestions', JSON.stringify(suggestions));
+
+            document.getElementById('successMsg').classList.add('show');
+            this.reset();
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            setTimeout(() => {
+                document.getElementById('successMsg').classList.remove('show');
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>
